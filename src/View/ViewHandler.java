@@ -21,10 +21,11 @@ public class ViewHandler extends Application {
 
 
 
+
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         root = new Group();
-        scene = new Scene(root, 1200,900);
+        scene = new Scene(root);
 
         modelFilm = new ModelFilm();
         vMenu = new ViewMainMenu(this,root);
