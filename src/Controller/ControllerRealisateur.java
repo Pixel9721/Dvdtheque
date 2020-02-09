@@ -1,17 +1,17 @@
 package Controller;
 
-import Model.ModelFilm;
+import Model.ModelRealisateur;
 import View.ViewHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-public class ControllerFilm implements EventHandler<MouseEvent> {
+public class ControllerRealisateur  implements EventHandler<MouseEvent> {
     private ViewHandler launcher;
-    private ModelFilm model;
+    private ModelRealisateur model;
 
-    public ControllerFilm(ViewHandler viewHandler, ModelFilm model) {
+    public ControllerRealisateur(ViewHandler viewHandler, ModelRealisateur model) {
         this.launcher = viewHandler;
-        this.launcher.setEventHandlerFilm(this);
+        this.launcher.setEventHandleRealisateur(this);
         this.model = model;
     }
 

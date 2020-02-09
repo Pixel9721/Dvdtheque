@@ -1,8 +1,6 @@
 package View;
 
-import Controller.ControllerFilm;
-import Controller.ControllerMenu;
-import Controller.ControllerOption;
+import Controller.*;
 import Model.ModelFilm;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -33,6 +31,9 @@ public class ViewHandler extends Application {
         vMenu = new ViewMainMenu(this,root);
         vFilm = new ViewFilm(this,root);
         vActeur = new ViewActeur(this, root);
+        vRealisateur = new ViewRealisateur(this, root);
+        vGenre = new ViewGenre(this, root);
+        vNationalite = new ViewNationalite(this, root);
         vOption = new ViewOption(this,root);
         controllerFilm = new ControllerFilm(this,modelFilm);
 
@@ -46,6 +47,9 @@ public class ViewHandler extends Application {
     public void setEventHandlerMenu(ControllerMenu cm) { vMenu.setEvents(cm); }
     public void setEventHandlerFilm(ControllerFilm cm) { vFilm.setEventsBack(cm); }
     public void setEventHandlerOption(ControllerOption cm){ vOption.setEventsBack(cm); }
+    public void setEventHandlerGenre(ControllerGenre controllerGenre) {}
+    public void setEventHandleRealisateur(ControllerRealisateur controllerRealisateur) {}
+    public void setEventHandlerNationalite(ControllerNationalite controllerNationalite) {}
     public void setFilmView() { vFilm.initView(); }
     public void setActeurView() { vActeur.initView(); }
     public void setRealisateurView() { vRealisateur.initView(); }
@@ -65,21 +69,5 @@ public class ViewHandler extends Application {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+

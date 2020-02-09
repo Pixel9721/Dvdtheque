@@ -24,7 +24,12 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
             launcher.setFilmView();
         } else if (event.getSource().equals(launcher.getvMenu().getBtnActeur())){
             launcher.setActeurView();
-
+        }else if (event.getSource().equals(launcher.getvMenu().getBtnGenre())){
+            launcher.setGenreView();
+        }else if (event.getSource().equals(launcher.getvMenu().getBtnRealisateur())){
+            launcher.setRealisateurView();
+        }else if (event.getSource().equals(launcher.getvMenu().getBtnNationalite())){
+            launcher.setNationaliteView();
         }else if (event.getSource().equals(launcher.getvMenu().getBtnQuit())) {
             System.exit(0);
         }

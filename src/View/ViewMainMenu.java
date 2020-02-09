@@ -18,7 +18,7 @@ public class ViewMainMenu {
     private ViewHandler vhMenu;
     private VBox vBox, vBox2;
     private HBox hBox;
-    private Button btnOption, btnQuit,btnFilm, btnActeur, btnRealisateur, btnGenre, btnNationalite;
+    private Button btnQuit,btnFilm, btnActeur, btnRealisateur, btnGenre, btnNationalite;
     private Group root;
     private Text titreM;
 
@@ -100,7 +100,6 @@ public class ViewMainMenu {
 
     //setter
     public void setEvents(ControllerMenu cm) {
-        btnOption.setOnMouseClicked(cm);
         btnQuit.setOnMouseClicked(cm);
         btnFilm.setOnMouseClicked(cm);
         btnRealisateur.setOnMouseClicked(cm);
@@ -110,9 +109,6 @@ public class ViewMainMenu {
     }
 
     //getter
-    public Button getBtnOption() {
-        return btnOption;
-    }
     public Button getBtnQuit() { return btnQuit; }
     public Button getBtnFilm() { return btnFilm; }
     public Button getBtnActeur() { return btnActeur; }
