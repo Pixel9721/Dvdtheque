@@ -18,11 +18,13 @@ public class ViewHandler extends Application {
     private ViewOption vOption;
     private ModelFilm modelFilm;
     private ControllerFilm controllerFilm;
+    private ViewActeur vActeur;
+    private ViewRealisateur vRealisateur;
+    private ViewGenre vGenre;
+    private ViewNationalite vNationalite;
 
 
-
-
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage)  {
         this.primaryStage = primaryStage;
         root = new Group();
         scene = new Scene(root);
@@ -30,6 +32,7 @@ public class ViewHandler extends Application {
         modelFilm = new ModelFilm();
         vMenu = new ViewMainMenu(this,root);
         vFilm = new ViewFilm(this,root);
+        vActeur = new ViewActeur(this, root);
         vOption = new ViewOption(this,root);
         controllerFilm = new ControllerFilm(this,modelFilm);
 
@@ -44,7 +47,12 @@ public class ViewHandler extends Application {
     public void setEventHandlerFilm(ControllerFilm cm) { vFilm.setEventsBack(cm); }
     public void setEventHandlerOption(ControllerOption cm){ vOption.setEventsBack(cm); }
     public void setFilmView() { vFilm.initView(); }
-    public void setOptionView() { vOption.initView(); }
+    public void setActeurView() { vActeur.initView(); }
+    public void setRealisateurView() { vRealisateur.initView(); }
+    public void setGenreView() { vGenre.initView(); }
+    public void setNationaliteView() { vNationalite.initView(); }
+
+
     public void setMenuView() { vMenu.initView(); }
 
     public Stage getPrimaryStage() {
@@ -54,7 +62,7 @@ public class ViewHandler extends Application {
     //getter
     public ViewOption getvOption() {return vOption; }
     public ViewMainMenu getvMenu() { return vMenu; }
-    public ViewFilm getvFilm() { return vFilm; }
+
 
 
 

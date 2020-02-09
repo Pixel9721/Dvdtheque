@@ -9,14 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 
 public class ViewFilm  {
 
     private Group root;
     private ViewHandler VhFilm;
-    private Button btnBackMainP, btnEnvoyer, btnQuit, btnFilm;
-    //private TextField tTitreF, tActeur,tRealisateur,tNationnalite,tGenre;
+    private Button btnBackMainP, btnEnvoyer, btnQuit;
+    private TextField tTitreF, tActeur,tRealisateur,tNationnalite,tGenre;
     private Label acteur, titreF, realisateur, nationnalite, genre;
     private ChoiceBox nationalite, geNre, Realisateur,Titre,Acteur;
 
@@ -30,20 +31,19 @@ public class ViewFilm  {
         btnEnvoyer = initButton(650,300,"Envoyer");
         btnQuit = initButton(650,330,"Quitter");
 
-
-        acteur = initLabel(150, 100,"Acteur",20);
+        acteur = initLabel(150, 100,"Acteur");
         //tActeur = initTextField(150,220);
         Acteur = initChoice(150,220);
-        titreF = initLabel(250, 100,"Titre film",20);
+        titreF = initLabel(250, 100,"Titre film");
         //tTitreF = initTextField(250,220);
         Titre = initChoice(250,220);
-        realisateur = initLabel(350,100,"Réalisateur",20);
+        realisateur = initLabel(350,100,"Réalisateur");
         //tRealisateur = initTextField(350,220);
         Realisateur = initChoice(350,220);
-        genre = initLabel(450,100,"Genre",20);
+        genre = initLabel(450,100,"Genre");
         //tGenre = initTextField(450,220);
         geNre = initChoice(450,220);
-        nationnalite = initLabel(550,100,"Nationnalité",20);
+        nationnalite = initLabel(550,100,"Nationnalité");
         //tNationnalite = initTextField(550,220);
         nationalite= initChoice(550,220);
 
@@ -90,14 +90,21 @@ public class ViewFilm  {
         f.setLayoutY(hauteur);
         return f;
     }
-    private Label initLabel(int hauteur, int largeur, String texteLabel, int size){
+    private Label initLabel(int hauteur, int largeur, String texteLabel){
         Label l = new Label();
         l.setLayoutX(largeur);
         l.setLayoutY(hauteur);
         l.setTextFill(Color.BLACK);
-        l.setFont(Font.font(size));
         l.setText(texteLabel);
+        l.setFont (Font.font ("Aclonica", 20));
         return l;
+    }
+    private Text iniTitre(String texteTitre ){
+        Text ti = new Text();
+        ti.setText(texteTitre);
+        ti.setFill(Color.BLACK);
+        ti.setFont (Font.font ("Aclonica", 190));
+        return ti;
     }
 
     //setter
@@ -105,7 +112,6 @@ public class ViewFilm  {
     public void setBtnBackMainP(Button btnBackMainP) { this.btnBackMainP = btnBackMainP; }
     public void setBtnEnvoyer(Button btnEnvoyer) { this.btnEnvoyer = btnEnvoyer; }
     public void setBtnQuit(Button btnQuit) { this.btnQuit = btnQuit; }
-    public void setBtnFilm(Button btnFilm) { this.btnFilm = btnFilm; }
     public void setActeur(Label acteur) { this.acteur = acteur; }
     public void setTitreF(Label titreF) { this.titreF = titreF; }
     public void setRealisateur(Label realisateur) { this.realisateur = realisateur; }
@@ -121,7 +127,6 @@ public class ViewFilm  {
     public Button getBtnBackMainP(){ return btnBackMainP; }
     public Button getBtnEnvoyer() { return btnEnvoyer; }
     public Button getBtnQuit() { return btnQuit; }
-    public Button getBtnFilm() { return btnFilm; }
     public Label getActeur() { return acteur; }
     public Label getTitreF() { return titreF; }
     public Label getRealisateur() { return realisateur; }

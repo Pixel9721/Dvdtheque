@@ -7,7 +7,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-public class ControllerMenu implements EventHandler {
+public class ControllerMenu implements EventHandler<MouseEvent> {
 
     private ViewHandler launcher;
     private ModelMenu model;
@@ -19,12 +19,17 @@ public class ControllerMenu implements EventHandler {
     }
 
     @Override
-    public void handle(Event event) {
-        if (event.getSource().equals(launcher.getvMenu().getBtnOption())) {
-            launcher.setOptionView();
-        } else if (event.getSource().equals(launcher.getvMenu().getBtnQuit())) {
+    public void handle(MouseEvent event) {
+        if (event.getSource().equals(launcher.getvMenu().getBtnFilm())) {
+            launcher.setFilmView();
+        } else if (event.getSource().equals(launcher.getvMenu().getBtnActeur())){
+            launcher.setActeurView();
+
+        }else if (event.getSource().equals(launcher.getvMenu().getBtnQuit())) {
             System.exit(0);
         }
+
     }
 }
+
 

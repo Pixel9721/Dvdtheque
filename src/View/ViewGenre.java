@@ -1,6 +1,8 @@
 package View;
 
-public class ViewRealisateur {
+public class ViewGenre {
+
+
 
 
 
