@@ -1,7 +1,7 @@
 package View;
 
 import Controller.*;
-import Model.ModelFilm;
+import Model.*;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -13,9 +13,18 @@ public class ViewHandler extends Application {
     private Group root;
     private ViewMainMenu vMenu;
     private ViewFilm vFilm;
-    private ViewOption vOption;
     private ModelFilm modelFilm;
+    private ModelMenu modelMenu;
+    private ModelActeur modelActeur;
+    private ModelRealisateur modelRealisateur;
+    private ModelGenre modelGenre;
+    private ModelNationalite modelNationalite;
+    private ControllerMenu controllerMenu;
     private ControllerFilm controllerFilm;
+    private ControllerActeur controllerActeur;
+    private ControllerRealisateur controllerRealisateur;
+    private ControllerGenre controllerGenre;
+    private ControllerNationalite controllerNationalite;
     private ViewActeur vActeur;
     private ViewRealisateur vRealisateur;
     private ViewGenre vGenre;
@@ -28,14 +37,24 @@ public class ViewHandler extends Application {
         scene = new Scene(root);
 
         modelFilm = new ModelFilm();
+        modelActeur = new ModelActeur();
+        modelRealisateur = new ModelRealisateur();
+        modelGenre = new ModelGenre();
+        modelNationalite = new ModelNationalite();
+
         vMenu = new ViewMainMenu(this,root);
         vFilm = new ViewFilm(this,root);
         vActeur = new ViewActeur(this, root);
         vRealisateur = new ViewRealisateur(this, root);
         vGenre = new ViewGenre(this, root);
         vNationalite = new ViewNationalite(this, root);
-        vOption = new ViewOption(this,root);
+
+        controllerMenu = new ControllerMenu(this, modelMenu);
         controllerFilm = new ControllerFilm(this,modelFilm);
+        controllerActeur = new ControllerActeur(this,modelActeur);
+        controllerRealisateur = new ControllerRealisateur(this,modelRealisateur);
+        controllerGenre = new ControllerGenre(this,modelGenre);
+        controllerNationalite = new ControllerNationalite(this,modelNationalite);
 
 
         primaryStage.setTitle("Dvdtheque");
@@ -46,10 +65,12 @@ public class ViewHandler extends Application {
     //setter
     public void setEventHandlerMenu(ControllerMenu cm) { vMenu.setEvents(cm); }
     public void setEventHandlerFilm(ControllerFilm cm) { vFilm.setEventsBack(cm); }
-    public void setEventHandlerOption(ControllerOption cm){ vOption.setEventsBack(cm); }
     public void setEventHandlerGenre(ControllerGenre controllerGenre) {}
     public void setEventHandleRealisateur(ControllerRealisateur controllerRealisateur) {}
     public void setEventHandlerNationalite(ControllerNationalite controllerNationalite) {}
+    public void setEventHandlerActeur(ControllerActeur controllerActeur) {}
+
+
     public void setFilmView() { vFilm.initView(); }
     public void setActeurView() { vActeur.initView(); }
     public void setRealisateurView() { vRealisateur.initView(); }
@@ -59,15 +80,13 @@ public class ViewHandler extends Application {
 
     public void setMenuView() { vMenu.initView(); }
 
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
 
     //getter
-    public ViewOption getvOption() {return vOption; }
     public ViewMainMenu getvMenu() { return vMenu; }
-
-
-
+    public ViewFilm getvFilm() { return vFilm; }
+    public ViewActeur getvActeur() { return vActeur; }
+    public ViewRealisateur getvRealisateur() { return vRealisateur; }
+    public ViewGenre getvGenre() { return vGenre; }
+    public ViewNationalite getvNationalite() { return vNationalite; }
 }
 

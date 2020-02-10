@@ -12,8 +12,8 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
     private ViewHandler launcher;
     private ModelMenu model;
 
-    public ControllerMenu(ViewHandler launcher, ModelMenu model) {
-        this.launcher = launcher;
+    public ControllerMenu(ViewHandler viewHandler, ModelMenu model) {
+        this.launcher = viewHandler;
         this.model = model;
         this.launcher.setEventHandlerMenu(this);
     }
@@ -22,6 +22,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
     public void handle(MouseEvent event) {
         if (event.getSource().equals(launcher.getvMenu().getBtnFilm())) {
             launcher.setFilmView();
+            System.out.println("ok");
         } else if (event.getSource().equals(launcher.getvMenu().getBtnActeur())){
             launcher.setActeurView();
         }else if (event.getSource().equals(launcher.getvMenu().getBtnGenre())){
