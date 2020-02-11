@@ -62,7 +62,7 @@ public class ViewMainMenu {
         //VBox.setMargin(btnRealisateur,new Insets(0,50,0,50));
         //HBox.setMargin(btnFilm,new Insets(0,50,0,50));
 
-        titreM = iniTitre("DVDTEHQUE");
+        titreM = iniTitre("DVDTHEQUE");
 
         vBox.getChildren().addAll();
         vBox2.getChildren().addAll(titreM);
