@@ -2,11 +2,13 @@ package View;
 
 import Controller.ControllerFilm;
 import Controller.ControllerMenu;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -16,36 +18,30 @@ public class ViewFilm  {
 
     private Group root;
     private ViewHandler VhFilm;
-    private Button btnBackMainP, btnEnvoyer, btnQuit;
-    private TextField tTitreF, tActeur,tRealisateur,tNationnalite,tGenre;
-    private Label acteur, titreF, realisateur, nationnalite, genre;
-    private ChoiceBox nationalite, geNre, Realisateur,Titre,Acteur;
-
-
+    private Button btnBackMainP, btnEnvoyer;
+    private Label  Titre, annee, image,resume, note;
+    private TextField nom_Film, annee_Film, note_Film, image_Film, resume_Film ;
+    private Text titreFilm;
 
     public ViewFilm( ViewHandler vhFilm,Group root) {
         this.root = root;
         this.VhFilm = vhFilm;
 
-        btnBackMainP = initButton(940,750,"retour");
-        btnEnvoyer = initButton(650,300,"Envoyer");
-        btnQuit = initButton(650,330,"Quitter");
+        btnEnvoyer = initButton("Envoyer",250,550);
+        btnBackMainP = initButton("retour",280,600);
 
-        acteur = initLabel(150, 100,"Acteur");
-        //tActeur = initTextField(150,220);
-        Acteur = initChoice(150,220);
-        titreF = initLabel(250, 100,"Titre film");
-        //tTitreF = initTextField(250,220);
-        Titre = initChoice(250,220);
-        realisateur = initLabel(350,100,"Réalisateur");
-        //tRealisateur = initTextField(350,220);
-        Realisateur = initChoice(350,220);
-        genre = initLabel(450,100,"Genre");
-        //tGenre = initTextField(450,220);
-        geNre = initChoice(450,220);
-        nationnalite = initLabel(550,100,"Nationnalité");
-        //tNationnalite = initTextField(550,220);
-        nationalite= initChoice(550,220);
+        titreFilm = iniTitre("Film",550, 200);
+
+        Titre = initLabel("Titre film",250, 350);
+        nom_Film = initTextField(400,350);
+        annee = initLabel("Année ", 250, 380);
+        annee_Film = initTextField(400,380);
+        image = initLabel("Image",250,410);
+        image_Film = initTextField(400,410);
+        resume = initLabel("Résumé", 250,440);
+        resume_Film = initTextField(400,440);
+        note = initLabel("Note",250,470);
+        note_Film = initTextField(400, 470);
 
     }
 
@@ -53,44 +49,43 @@ public class ViewFilm  {
         root.getChildren().clear();
         root.getChildren().addAll(btnBackMainP);
         root.getChildren().add(btnEnvoyer);
-        root.getChildren().add(btnQuit);
-        //root.getChildren().add(tActeur);
-        //root.getChildren().add(tRealisateur);
-        //root.getChildren().add(tTitreF);
-        //root.getChildren().add(tGenre);
-        //root.getChildren().add(tNationnalite);
-        root.getChildren().add(Acteur);
-        root.getChildren().add(Titre);
-        root.getChildren().add(Realisateur);
-        root.getChildren().add(geNre);
-        root.getChildren().add(nationalite);
-        root.getChildren().add(acteur);
-        root.getChildren().add(titreF);
-        root.getChildren().add(realisateur);
-        root.getChildren().add(genre);
-        root.getChildren().add(nationnalite);
-
+        root.getChildren().addAll(titreFilm);
+        root.getChildren().addAll(Titre, nom_Film, annee, annee_Film,image, image_Film, note, note_Film);
+        root.getChildren().add(resume);
+        root.getChildren().add(resume_Film);
     }
     private ChoiceBox initChoice(int hauteur, int largeur){
         ChoiceBox c = new ChoiceBox();
-        c.setLayoutX(largeur);
-        c.setLayoutY(hauteur);
+        c.setLayoutX(hauteur);
+        c.setLayoutY(largeur);
         return c;
     }
-    private Button initButton(int hauteur, int largeur, String texteButton) {
+    private Button initButton(String texteButton, int largeur, int hauteur) {
         Button b = new Button();
+        b.setText(texteButton);
         b.setLayoutX(largeur);
         b.setLayoutY(hauteur);
-        b.setText(texteButton);
+        b.setTextFill(Color.BLACK);
+        b.setBackground(null);
+        b.setFont (Font.font ("Aclonica", 20));
         return b;
     }
-    private TextField initTextField(int hauteur, int largeur){
+    private Text iniTitre(String texteTitre, int largeur, int hauteur){
+        Text ti = new Text();
+        ti.setText(texteTitre);
+        ti.setLayoutX(largeur);
+        ti.setLayoutY(hauteur);
+        ti.setFill(Color.BLACK);
+        ti.setFont (Font.font ("Aclonica", 190));
+        return ti;
+    }
+    private TextField initTextField( int largeur, int hauteur){
         TextField f = new TextField();
         f.setLayoutX(largeur);
         f.setLayoutY(hauteur);
         return f;
     }
-    private Label initLabel(int hauteur, int largeur, String texteLabel){
+    private Label initLabel(String texteLabel, int largeur, int hauteur  ){
         Label l = new Label();
         l.setLayoutX(largeur);
         l.setLayoutY(hauteur);
@@ -99,40 +94,38 @@ public class ViewFilm  {
         l.setFont (Font.font ("Aclonica", 20));
         return l;
     }
-    private Text iniTitre(String texteTitre ){
-        Text ti = new Text();
-        ti.setText(texteTitre);
-        ti.setFill(Color.BLACK);
-        ti.setFont (Font.font ("Aclonica", 190));
-        return ti;
+    public void setEvents(ControllerFilm cm) {
+        btnEnvoyer.setOnMouseClicked(cm);
+        btnBackMainP.setOnMouseClicked(cm);
     }
 
     //setter
     public void setEventsBack(ControllerFilm cm) { btnBackMainP.setOnMouseClicked(cm); }
     public void setBtnBackMainP(Button btnBackMainP) { this.btnBackMainP = btnBackMainP; }
     public void setBtnEnvoyer(Button btnEnvoyer) { this.btnEnvoyer = btnEnvoyer; }
-    public void setBtnQuit(Button btnQuit) { this.btnQuit = btnQuit; }
-    public void setActeur(Label acteur) { this.acteur = acteur; }
-    public void setTitreF(Label titreF) { this.titreF = titreF; }
-    public void setRealisateur(Label realisateur) { this.realisateur = realisateur; }
-    public void setNationnalite(Label nationnalite) { this.nationnalite = nationnalite; }
-    public void setGenre(Label genre) { this.genre = genre; }
-    public void setNationalite(ChoiceBox nationalite) { this.nationalite = nationalite; }
-    public void setGeNre(ChoiceBox geNre) { this.geNre = geNre; }
-    public void setRealisateur(ChoiceBox realisateur) { Realisateur = realisateur; }
-    public void setTitre(ChoiceBox titre) { Titre = titre; }
-    public void setActeur(ChoiceBox acteur) { Acteur = acteur; }
+
+    public void setTitre(Label titre) { Titre = titre; }
+    public void setAnnee(Label annee) { this.annee = annee; }
+    public void setImage(Label image) { this.image = image; }
+    public void setResume(Label resume) { this.resume = resume; }
+    public void setNote(Label note) { this.note = note; }
+    public void setNom_Film(TextField nom_Film) { this.nom_Film = nom_Film; }
+    public void setAnnee_Film(TextField annee_Film) { this.annee_Film = annee_Film; }
+    public void setNote_Film(TextField note_Film) { this.note_Film = note_Film; }
+    public void setImage_Film(TextField image_Film) { this.image_Film = image_Film; }
+    public void setResume_Film(TextField resume_Film) { this.resume_Film = resume_Film; }
 
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }
     public Button getBtnEnvoyer() { return btnEnvoyer; }
-    public Button getBtnQuit() { return btnQuit; }
-    public Label getActeur() { return acteur; }
-    public Label getTitreF() { return titreF; }
-    public Label getRealisateur() { return realisateur; }
-    public ChoiceBox getTitre() { return Titre; }
-    public Label getNationnalite() { return nationnalite; }
-    public Label getGenre() { return genre; }
-    public ChoiceBox getNationalite() { return nationalite; }
-    public ChoiceBox getGeNre() { return geNre; }
+    public Label getTitre() { return Titre; }
+    public Label getAnnee() { return annee; }
+    public Label getImage() { return image; }
+    public Label getResume() { return resume; }
+    public Label getNote() { return note; }
+    public TextField getNom_Film() { return nom_Film; }
+    public TextField getAnnee_Film() { return annee_Film; }
+    public TextField getNote_Film() { return note_Film; }
+    public TextField getImage_Film() { return image_Film; }
+    public TextField getResume_Film() { return resume_Film; }
 }

@@ -18,6 +18,8 @@ public class ControllerNationalite implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-
+        if(event.getSource().equals(launcher.getvNationalite().getBtnBackMainP())){
+            launcher.setMenuView();
+        }
     }
 }

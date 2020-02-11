@@ -17,6 +17,8 @@ public class ControllerRealisateur  implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-
+        if(event.getSource().equals(launcher.getvRealisateur().getBtnBackMainP())){
+            launcher.setMenuView();
+        }
     }
 }

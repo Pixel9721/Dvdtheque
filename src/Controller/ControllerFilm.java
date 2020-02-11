@@ -17,6 +17,8 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-
+        if(event.getSource().equals(launcher.getvFilm().getBtnBackMainP())){
+            launcher.setMenuView();
+        }
     }
 }

@@ -59,16 +59,17 @@ public class ViewHandler extends Application {
 
         primaryStage.setTitle("Dvdtheque");
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
 
     }
     //setter
     public void setEventHandlerMenu(ControllerMenu cm) { vMenu.setEvents(cm); }
     public void setEventHandlerFilm(ControllerFilm cm) { vFilm.setEventsBack(cm); }
-    public void setEventHandlerGenre(ControllerGenre controllerGenre) {}
-    public void setEventHandleRealisateur(ControllerRealisateur controllerRealisateur) {}
-    public void setEventHandlerNationalite(ControllerNationalite controllerNationalite) {}
-    public void setEventHandlerActeur(ControllerActeur controllerActeur) {}
+    public void setEventHandlerGenre(ControllerGenre cm) {vGenre.setEventsBack(cm);}
+    public void setEventHandleRealisateur(ControllerRealisateur cm) {vRealisateur.setEventsBack(cm);}
+    public void setEventHandlerNationalite(ControllerNationalite cm) {vNationalite.setEventsBack(cm);}
+    public void setEventHandlerActeur(ControllerActeur cm) {vActeur.setEventsBack(cm);}
 
 
     public void setFilmView() { vFilm.initView(); }
@@ -76,8 +77,6 @@ public class ViewHandler extends Application {
     public void setRealisateurView() { vRealisateur.initView(); }
     public void setGenreView() { vGenre.initView(); }
     public void setNationaliteView() { vNationalite.initView(); }
-
-
     public void setMenuView() { vMenu.initView(); }
 
 
