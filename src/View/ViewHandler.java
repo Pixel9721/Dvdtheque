@@ -30,6 +30,7 @@ public class ViewHandler extends Application {
         this.primaryStage = primaryStage;
         root = new Group();
         scene = new Scene(root);
+        scene.getStylesheets().add("Assets/css/styles.css");
 
         modelFilm = new ModelFilm();
         modelGenre = new ModelListe();

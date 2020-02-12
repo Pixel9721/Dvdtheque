@@ -89,9 +89,8 @@ public class ViewMainMenu {
         b.setText(texteButton);
         b.setLayoutX(largeur);
         b.setLayoutY(hauteur);
-        b.setTextFill(Color.BLACK);
-        b.setBackground(null);
-        b.setStyle(" -fx-border-color: #000000; -fx-border-radius: 15;");
+        //b.setBackground(null);
+        b.getStyleClass().add("btnStyle");
         b.setFont (Font.font ("Aclonica", 20));
         return b;
     }
