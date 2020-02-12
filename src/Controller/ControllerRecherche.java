@@ -1,18 +1,18 @@
 package Controller;
 
-import Model.ModelNationalite;
+import Model.ModelRecherche;
 import View.ViewHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-public class ControllerNationalite implements EventHandler<MouseEvent> {
+public class ControllerRecherche implements EventHandler<MouseEvent> {
 
         private ViewHandler launcher;
-        private ModelNationalite model;
+        private ModelRecherche model;
 
-    public ControllerNationalite(ViewHandler viewHandler, ModelNationalite model) {
+    public ControllerRecherche(ViewHandler viewHandler, ModelRecherche model) {
         this.launcher = viewHandler;
-        this.launcher.setEventHandlerNationalite(this);
+        this.launcher.setEventHandlerRecherche(this);
         this.model = model;
     }
 

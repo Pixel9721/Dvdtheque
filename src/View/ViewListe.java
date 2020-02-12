@@ -1,49 +1,45 @@
 package View;
 
-import Controller.ControllerFilm;
-import Controller.ControllerRealisateur;
+import Controller.ControllerListe;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class ViewRealisateur {
+public class ViewListe {
     private Group root;
-    private ViewHandler vhRealisateur;
+    private ViewHandler vhListe;
     private Button btnBackMainP, btnEnvoyer;
-    private Label  nom_realisateur, prenom_realisateur;
-    private TextField Nom_ReaLisateur, Prenom_Realisateur;
+    private Label libelle;
+    private TextField Libelle_genre;
     private Text titreFilm;
 
 
-    public ViewRealisateur(ViewHandler vhRealisateur, Group root) {
+    public ViewListe(ViewHandler vhListe, Group root) {
         this.root = root;
-        this.vhRealisateur = vhRealisateur;
+        this.vhListe = vhListe;
+
         btnEnvoyer = initButton("Envoyer",250,550);
         btnBackMainP = initButton("retour",280,600);
 
-        titreFilm = iniTitre("Réalisateur",150, 200);
+        titreFilm = iniTitre("Liste des Films",380, 200);
 
-        nom_realisateur = initLabel("Réalisateur",250, 350);
-        Nom_ReaLisateur = initTextField(400,350);
-        prenom_realisateur = initLabel("Nom",250,380);
-        Prenom_Realisateur = initTextField(400, 380);
+        libelle = initLabel("Libelle",250,350);
+        Libelle_genre = initTextField(400,350);
+
     }
 
     void initView(){
         root.getChildren().clear();
         root.getChildren().addAll(btnBackMainP);
         root.getChildren().add(btnEnvoyer);
-        root.getChildren().addAll(titreFilm);
-        root.getChildren().addAll(nom_realisateur,Nom_ReaLisateur);
-        root.getChildren().addAll(Prenom_Realisateur, prenom_realisateur );
+        root.getChildren().addAll(titreFilm, libelle,Libelle_genre);
 
     }
+
     private Button initButton(String texteButton, int largeur, int hauteur) {
         Button b = new Button();
         b.setText(texteButton);
@@ -51,6 +47,7 @@ public class ViewRealisateur {
         b.setLayoutY(hauteur);
         b.setTextFill(Color.BLACK);
         b.setBackground(null);
+        b.setStyle(" -fx-border-color: #000000; -fx-border-radius: 30;");
         b.setFont (Font.font ("Aclonica", 20));
         return b;
     }
@@ -60,7 +57,7 @@ public class ViewRealisateur {
         ti.setLayoutX(largeur);
         ti.setLayoutY(hauteur);
         ti.setFill(Color.BLACK);
-        ti.setFont (Font.font ("Aclonica", 190));
+        ti.setFont (Font.font ("Aclonica", 100));
         return ti;
     }
     private TextField initTextField( int largeur, int hauteur){
@@ -78,31 +75,23 @@ public class ViewRealisateur {
         l.setFont (Font.font ("Aclonica", 20));
         return l;
     }
-    public void setEvents(ControllerRealisateur cm) {
+    public void setEvents(ControllerListe cm) {
         btnEnvoyer.setOnMouseClicked(cm);
         btnBackMainP.setOnMouseClicked(cm);
     }
 
     //setter
-    public void setEventsBack(ControllerRealisateur cm) { btnBackMainP.setOnMouseClicked(cm); }
+    public void setEventsBack(ControllerListe cm) { btnBackMainP.setOnMouseClicked(cm); }
     public void setBtnBackMainP(Button btnBackMainP) { this.btnBackMainP = btnBackMainP; }
     public void setBtnEnvoyer(Button btnEnvoyer) { this.btnEnvoyer = btnEnvoyer; }
-    public void setNom_realisateur(Label nom_realisateur) {
-        this.nom_realisateur = nom_realisateur;
-    }
-    public void setPrenom_realisateur(Label prenom_realisateur) {
-        this.prenom_realisateur = prenom_realisateur;
-    }
-    public void setNom_ReaLisateur(TextField nom_ReaLisateur) { Nom_ReaLisateur = nom_ReaLisateur; }
-    public void setPrenom_Realisateur(TextField prenom_Realisateur) { Prenom_Realisateur = prenom_Realisateur; }
+
+    public void setLibelle(Label libelle) { this.libelle = libelle; }
+    public void setLibelle_genre(TextField libelle_genre) { Libelle_genre = libelle_genre; }
 
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }
     public Button getBtnEnvoyer() { return btnEnvoyer; }
 
-    public Label getNom_realisateur() { return nom_realisateur; }
-    public Label getPrenom_realisateur() { return prenom_realisateur; }
-    public TextField getNom_ReaLisateur() { return Nom_ReaLisateur; }
-    public TextField getPrenom_Realisateur() { return Prenom_Realisateur; }
+    public Label getLibelle() { return libelle; }
+    public TextField getLibelle_genre() { return Libelle_genre; }
 }
-

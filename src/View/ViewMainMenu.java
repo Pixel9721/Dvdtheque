@@ -1,7 +1,6 @@
 package View;
 
 import Controller.ControllerMenu;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -18,7 +17,7 @@ public class ViewMainMenu {
     private ViewHandler vhMenu;
     private VBox vBox, vBox2;
     private HBox hBox;
-    private Button btnQuit,btnFilm, btnActeur, btnRealisateur, btnGenre, btnNationalite;
+    private Button btnQuit,btnFilm, btnListe, btnRecherche;
     private Group root;
     private Text titreM;
 
@@ -53,12 +52,10 @@ public class ViewMainMenu {
                 BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
 
         //initialisation des bouttons et du titre
-        btnFilm = initButton("Film", 150, 550);
-        btnActeur = initButton("Acteur",180, 600);
-        btnRealisateur = initButton("Réalisateur",210,650);
-        btnGenre = initButton("Genre", 1100,550);
-        btnNationalite = initButton("Nationalité",1130,600);
-        btnQuit = initButton("Quitter",1190,650);
+        btnFilm = initButton("Film", 100, 550);
+        btnListe = initButton("Liste des films", 180,620);
+        btnRecherche = initButton("Recherche",370,690);
+        btnQuit = initButton("Quitter",1190,690);
         //VBox.setMargin(btnRealisateur,new Insets(0,50,0,50));
         //HBox.setMargin(btnFilm,new Insets(0,50,0,50));
 
@@ -76,7 +73,7 @@ public class ViewMainMenu {
         root.getChildren().add(vBox);
         root.getChildren().add(vBox2);
         root.getChildren().add(hBox);
-        root.getChildren().addAll(btnFilm, btnActeur, btnGenre, btnNationalite, btnRealisateur, btnQuit);
+        root.getChildren().addAll(btnFilm, btnListe, btnRecherche, btnQuit);
     }
 
     private Text iniTitre(String texteTitre ){
@@ -94,6 +91,7 @@ public class ViewMainMenu {
         b.setLayoutY(hauteur);
         b.setTextFill(Color.BLACK);
         b.setBackground(null);
+        b.setStyle(" -fx-border-color: #000000; -fx-border-radius: 30;");
         b.setFont (Font.font ("Aclonica", 20));
         return b;
     }
@@ -102,17 +100,13 @@ public class ViewMainMenu {
     public void setEvents(ControllerMenu cm) {
         btnQuit.setOnMouseClicked(cm);
         btnFilm.setOnMouseClicked(cm);
-        btnRealisateur.setOnMouseClicked(cm);
-        btnActeur.setOnMouseClicked(cm);
-        btnGenre.setOnMouseClicked(cm);
-        btnNationalite.setOnMouseClicked(cm);
+        btnListe.setOnMouseClicked(cm);
+        btnRecherche.setOnMouseClicked(cm);
     }
 
     //getter
     public Button getBtnQuit() { return btnQuit; }
     public Button getBtnFilm() { return btnFilm; }
-    public Button getBtnActeur() { return btnActeur; }
-    public Button getBtnRealisateur() { return btnRealisateur; }
-    public Button getBtnGenre() { return btnGenre; }
-    public Button getBtnNationalite() { return btnNationalite; }
+    public Button getBtnListe() { return btnListe; }
+    public Button getBtnRecherche() { return btnRecherche; }
 }
