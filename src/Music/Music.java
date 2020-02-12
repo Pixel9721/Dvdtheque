@@ -5,7 +5,7 @@ import javafx.scene.media.MediaPlayer;
 import java.nio.file.Paths;
 
 public class Music {
-    private static final String MAIN_MENU_THEME = "src/Assets/Music/warner.mp3";
+    private static final String MAIN_MENU_THEME = "src/Assets/Music/kingdom.mp3";
     private static MediaPlayer mediaPlayer;
     private static double volume = 0.5;
 
