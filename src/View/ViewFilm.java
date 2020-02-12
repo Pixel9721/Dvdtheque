@@ -54,12 +54,7 @@ public class ViewFilm  {
         root.getChildren().add(resume);
         root.getChildren().add(resume_Film);
     }
-    private ChoiceBox initChoice(int hauteur, int largeur){
-        ChoiceBox c = new ChoiceBox();
-        c.setLayoutX(hauteur);
-        c.setLayoutY(largeur);
-        return c;
-    }
+
     private Button initButton(String texteButton, int largeur, int hauteur) {
         Button b = new Button();
         b.setText(texteButton);
