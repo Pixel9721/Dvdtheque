@@ -47,7 +47,7 @@ public class ViewListe {
         b.setLayoutY(hauteur);
         b.setTextFill(Color.BLACK);
         b.setBackground(null);
-        b.setStyle(" -fx-border-color: #000000; -fx-border-radius: 30;");
+        b.setStyle(" -fx-border-color: #000000; -fx-border-radius: 15;");
         b.setFont (Font.font ("Aclonica", 20));
         return b;
     }
