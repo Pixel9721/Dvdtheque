@@ -15,8 +15,8 @@ public class ViewRecherche {
     private Group root;
     private ViewHandler VhRecherche;
     private Button btnBackMainP, btnEnvoyer;
-    private Label  Titre, annee, image,resume, note;
-    private TextField nom_Film, annee_Film, note_Film, image_Film, resume_Film ;
+    private Label  Titre, annee;
+    private TextField nom_Film, annee_Film;
     private Text titreFilm;
 
 
@@ -33,12 +33,6 @@ public class ViewRecherche {
         nom_Film = initTextField(400,350);
         annee = initLabel("Année ", 250, 380);
         annee_Film = initTextField(400,380);
-        image = initLabel("Image",250,470);
-        image_Film = initTextField(400,470);
-        resume = initLabel("Résumé", 250,410);
-        resume_Film = initTextField(400,410);
-        note = initLabel("Note",250,440);
-        note_Film = initTextField(400, 440);
 
     }
 
@@ -47,9 +41,7 @@ public class ViewRecherche {
         root.getChildren().addAll(btnBackMainP);
         root.getChildren().add(btnEnvoyer);
         root.getChildren().addAll(titreFilm);
-        root.getChildren().addAll(Titre, nom_Film, annee, annee_Film,image, image_Film, note, note_Film);
-        root.getChildren().add(resume);
-        root.getChildren().add(resume_Film);
+        root.getChildren().addAll(Titre, nom_Film, annee, annee_Film);
     }
 
     private Button initButton(String texteButton, int largeur, int hauteur) {

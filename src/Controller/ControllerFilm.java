@@ -51,7 +51,7 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
 
             bdd.start();
             bdd.edit(queryAddFilm);
-            if(nomF == null || anneeF == null || noteF == null || resumeF == null || imgF == null){
+            if(nomF .equals("") || anneeF .equals("") || noteF .equals("") || resumeF .equals("") || imgF .equals("")){
                 showAlertVide();
                 bdd.stop();
                 return;

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class BDDManager {
 
+    // port mélanie: 8889/Dvdtheque    port morwane:3306/dvdtheque
     private final String BDD_URL = "jdbc:mysql://localhost:8889/Dvdtheque";
     private final String BDD_USER = "root";
     private final String BDD_PASSWORD =  "root";

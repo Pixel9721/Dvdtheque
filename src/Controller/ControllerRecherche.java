@@ -42,10 +42,10 @@ public class ControllerRecherche implements EventHandler<MouseEvent> {
 
             bdd.start();
             bdd.ask(querySearch);
+            System.out.println(bdd.ask(querySearch));
             if(querySearch == null){
                 showAlertNullSearch();
             }
-
 
             bdd.stop();
         }
