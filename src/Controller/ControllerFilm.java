@@ -47,7 +47,7 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
             String imgF = launcher.getvFilm().getImage_Film().getText();
             String resumeF = launcher.getvFilm().getResume_Film().getText();
 
-            String queryAddFilm = "INSERT INTO film (Nom_Film, Annee_Film, Note_Film, Image_Film, Resume_Film) VALUES ('" + nomF + "'," + anneeF + "," + noteF + ",'" + resumeF + "','" + imgF + "');";
+            String queryAddFilm = "INSERT INTO film (Nom_Film, Annee_Film, Note_Film, Image_Film, Resume_Film) VALUES ('" + nomF + "','" + anneeF + "','" + noteF + "','" + resumeF + "','" + imgF + "');";
 
             bdd.start();
             bdd.edit(queryAddFilm);

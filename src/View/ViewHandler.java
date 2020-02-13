@@ -29,7 +29,7 @@ public class ViewHandler extends Application {
     public void start(Stage primaryStage)  {
         this.primaryStage = primaryStage;
         root = new Group();
-        scene = new Scene(root);
+        scene = new Scene(root,1300,700);
         scene.getStylesheets().add("Assets/css/styles.css");
 
         modelFilm = new ModelFilm();
@@ -50,7 +50,6 @@ public class ViewHandler extends Application {
         Music.startMainMenuMusic();
         primaryStage.setTitle("Dvdtheque");
         primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
         primaryStage.show();
 
     }
