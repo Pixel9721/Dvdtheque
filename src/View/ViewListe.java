@@ -3,37 +3,39 @@ package View;
 import Controller.ControllerFilm;
 import Controller.ControllerListe;
 import Controller.ControllerMenu;
+import Dvdtheque.BDDManager;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.image.ImageView;
+import javafx.stage.Screen;
+
+import java.util.ArrayList;
 
 public class ViewListe {
     private Group root;
     private ViewHandler vhListe;
-    private Button btnBackMainP, btnEnvoyer;
+    private Button btnBackMainP;
     private Label  Titre, annee, image,resume, note;
     private Text titreFilm;
+    private VBox vBox;
 
 
     public ViewListe(ViewHandler vhListe, Group root) {
         this.root = root;
         this.vhListe = vhListe;
 
-        btnEnvoyer = initButton("Envoyer",250,550);
-        btnBackMainP = initButton("retour",280,600);
+        btnBackMainP = initButton("retour",80,800);
 
         titreFilm = iniTitre("Film",550, 200);
 
-        Titre = initLabel("Titre film",250, 350);
+        Titre = initLabel("Titre film",250, 470);
         annee = initLabel("Année ", 250, 380);
-        image = initLabel("Image",250,470);
+        image = initLabel("Image",250,350);
         resume = initLabel("Résumé", 250,410);
         note = initLabel("Note",250,440);
 
@@ -42,18 +44,61 @@ public class ViewListe {
     void initView(){
         root.getChildren().clear();
         root.getChildren().addAll(btnBackMainP);
-        root.getChildren().add(btnEnvoyer);
         root.getChildren().addAll(titreFilm);
-        root.getChildren().addAll(Titre,annee,image, note);
-        root.getChildren().add(resume);
+        viewListe();
     }
+    public void viewListe(){
+            vBox = new VBox();
+
+            ScrollPane scroll = new ScrollPane();
+
+            BDDManager bdd = new BDDManager();
+            bdd.start();
+
+        ArrayList<ArrayList<String>> ListeFilm = bdd.ask("SELECT * FROM Dvdtheque.film");
+
+        for (int i = 0; i < ListeFilm.size(); i ++) {
+            Label nomFilm = new Label(ListeFilm.get(i).get(1));
+            Label anneeFilm = new Label(ListeFilm.get(i).get(2));
+            Label noteFilm = new Label(ListeFilm.get(i).get(3));
+            TextArea resumeFilm = new TextArea(ListeFilm.get(i).get(4));
+            ImageView imageFilm = new ImageView("Assets/images/30couleur.jpg");
+
+            System.out.println(ListeFilm);
+            bdd.stop();
+
+            vBox.setLayoutX(350);
+            vBox.setLayoutY(250);
+
+            vBox.setMinWidth(Screen.getPrimary().getBounds().getWidth());
+            vBox.setMinHeight(Screen.getPrimary().getBounds().getHeight());
+
+            imageFilm.setFitWidth(250);
+            imageFilm.setFitHeight(350);
+            //resumeFilm.setPrefWidth(200);
+            //resumeFilm.setPrefHeight(300);
+
+
+
+            vBox.getChildren().addAll(imageFilm, nomFilm, anneeFilm, resumeFilm,noteFilm);
+
+        }
+            scroll.setContent(vBox);
+            scroll.setMaxHeight(1920);
+            scroll.setMaxWidth(1920);
+            scroll.setLayoutX(500);
+            scroll.setLayoutY(250);
+
+            root.getChildren().add(scroll);
+    }
+
+
 
     private Button initButton(String texteButton, int largeur, int hauteur) {
         Button b = new Button();
         b.setText(texteButton);
         b.setLayoutX(largeur);
         b.setLayoutY(hauteur);
-        //b.setBackground(null);
         b.getStyleClass().add("btnStyle");
         b.setFont (Font.font ("Aclonica", 20));
         return b;
@@ -84,14 +129,12 @@ public class ViewListe {
         return l;
     }
     public void setEvents(ControllerListe cm) {
-        btnEnvoyer.setOnMouseClicked(cm);
         btnBackMainP.setOnMouseClicked(cm);
     }
 
     //setter
     public void setEventsBack(ControllerListe cm) { btnBackMainP.setOnMouseClicked(cm); }
     public void setBtnBackMainP(Button btnBackMainP) { this.btnBackMainP = btnBackMainP; }
-    public void setBtnEnvoyer(Button btnEnvoyer) { this.btnEnvoyer = btnEnvoyer; }
 
     public void setTitre(Label titre) { Titre = titre; }
     public void setAnnee(Label annee) { this.annee = annee; }
@@ -101,7 +144,6 @@ public class ViewListe {
 
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }
-    public Button getBtnEnvoyer() { return btnEnvoyer; }
     public Label getTitre() { return Titre; }
     public Label getAnnee() { return annee; }
     public Label getImage() { return image; }

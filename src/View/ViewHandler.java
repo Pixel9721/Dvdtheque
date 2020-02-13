@@ -32,7 +32,7 @@ public class ViewHandler extends Application {
         scene = new Scene(root,1300,700);
         scene.getStylesheets().add("Assets/css/styles.css");
 
-        modelFilm = new ModelFilm();
+        //modelFilm = new ModelFilm();
         modelGenre = new ModelListe();
         modelNationalite = new ModelRecherche();
 
