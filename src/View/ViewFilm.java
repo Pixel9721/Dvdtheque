@@ -55,15 +55,16 @@ public class ViewFilm  {
         try{
             BDDManager bdd = new BDDManager();
             bdd.start();
-            //String queryNomF = "INSERT INTO 'film' ('Nom_Film','Annee_Film','Note_Film','Image_Film') VALUES ('"+nom_Film+".getText()+"')";
-            //String queryAnneeF = "INSERT INTO 'film' ('Nom_Film','Annee_Film','Note_Film','Image_Film') VALUES ('"+nom_Film+".getText()+"','"+annee_Film".getText()+"','"+image_Film".getText()+"','"+resume_Film".getText()+"','"+note_Film".getText()+"')";
-            //String queryNote = "INSERT INTO 'film' ('Nom_Film','Annee_Film','Note_Film','Image_Film') VALUES ('"+nom_Film+".getText()+"','"+annee_Film".getText()+"','"+image_Film".getText()+"','"+resume_Film".getText()+"','"+note_Film".getText()+"')";
-            //String queryImg = "INSERT INTO 'film' ('Nom_Film','Annee_Film','Note_Film','Image_Film') VALUES ('"+nom_Film+".getText()+"','"+annee_Film".getText()+"','"+image_Film".getText()+"','"+resume_Film".getText()+"','"+note_Film".getText()+"')";
+            String queryNomF = "INSERT INTO 'film' ('Nom_Film') VALUES ('"+nom_Film.getText()+"')";
+            String queryAnnee = "INSERT INTO 'film' ('Annee_Film') VALUES ('"+annee_Film.getText()+"')";
+            String queryNote = "INSERT INTO 'film' ('Note_Film') VALUES ('"+note_Film.getText()+"')";
+            String queryImg = "INSERT INTO 'film' ('Image_Film') VALUES ('"+image_Film.getText()+"')";
+            String queryResume = "INSERT INTO 'film' ('Resume_Film') VALUES ('"+resume_Film.getText()+"')";
             System.out.println("Reussite");
+            bdd.stop();
         }catch (Exception e){
             System.out.println("Echoue");
         }
-        // "INSERT INTO 'film' ('Nom_Film','Annee_Film','Note_Film','Image_Film') VALUES ('"+nom_Film".getText()+"','"+annee_Film".getText()+"','"+image_Film".getText()+"','"+resume_Film".getText()+"','"+note_Film".getText()+"')";
     }
 
     private Button initButton(String texteButton, int largeur, int hauteur) {
