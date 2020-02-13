@@ -20,6 +20,8 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
     public void handle(MouseEvent event) {
         if (event.getSource().equals(launcher.getvMenu().getBtnFilm())) {
             launcher.setFilmView();
+        }else if(event.getSource().equals(launcher.getvMenu().getBtnActeur())){
+            launcher.setActeurView();
         }else if (event.getSource().equals(launcher.getvMenu().getBtnListe())){
             launcher.setListeView();
         }else if (event.getSource().equals(launcher.getvMenu().getBtnRecherche())){

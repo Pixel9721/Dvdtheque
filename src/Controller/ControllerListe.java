@@ -17,7 +17,7 @@ public class ControllerListe implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-        if(event.getSource().equals(launcher.getvGenre().getBtnBackMainP())){
+        if(event.getSource().equals(launcher.getvListe().getBtnBackMainP())){
             launcher.setMenuView();
         }
     }

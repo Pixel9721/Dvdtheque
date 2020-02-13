@@ -17,7 +17,7 @@ public class ViewMainMenu {
     private ViewHandler vhMenu;
     private VBox vBox, vBox2;
     private HBox hBox;
-    private Button btnQuit,btnFilm, btnListe, btnRecherche;
+    private Button btnQuit,btnFilm, btnListe, btnRecherche, btnActeur;
     private Group root;
     private Text titreM;
 
@@ -52,12 +52,11 @@ public class ViewMainMenu {
                 BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
 
         //initialisation des bouttons et du titre
-        btnFilm = initButton("Ajouter film", 100, 350);
-        btnListe = initButton("Liste des films", 180,420);
-        btnRecherche = initButton("Recherche",300,490);
+        btnActeur = initButton("Acteur", 180,350);
+        btnListe = initButton("Liste des films", 210,420);
+        btnFilm = initButton("Ajouter film", 240, 490);
+        btnRecherche = initButton("Recherche",300,550);
         btnQuit = initButton("Quitter",1190,590);
-        //VBox.setMargin(btnRealisateur,new Insets(0,50,0,50));
-        //HBox.setMargin(btnFilm,new Insets(0,50,0,50));
 
         titreM = iniTitre("DVDTHEQUE");
 
@@ -73,7 +72,7 @@ public class ViewMainMenu {
         root.getChildren().add(vBox);
         root.getChildren().add(vBox2);
         root.getChildren().add(hBox);
-        root.getChildren().addAll(btnFilm, btnListe, btnRecherche, btnQuit);
+        root.getChildren().addAll( btnListe, btnActeur, btnFilm, btnRecherche, btnQuit);
     }
 
     private Text iniTitre(String texteTitre ){
@@ -101,6 +100,7 @@ public class ViewMainMenu {
         btnFilm.setOnMouseClicked(cm);
         btnListe.setOnMouseClicked(cm);
         btnRecherche.setOnMouseClicked(cm);
+        btnActeur.setOnMouseClicked(cm);
     }
 
     //getter
@@ -108,4 +108,5 @@ public class ViewMainMenu {
     public Button getBtnFilm() { return btnFilm; }
     public Button getBtnListe() { return btnListe; }
     public Button getBtnRecherche() { return btnRecherche; }
+    public Object getBtnActeur() { return  btnActeur; }
 }
