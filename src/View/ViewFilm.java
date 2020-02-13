@@ -102,19 +102,8 @@ public class ViewFilm  {
 
     //setter
     public void setEventsBack(ControllerFilm cm) { btnBackMainP.setOnMouseClicked(cm); }
-    public void setBtnBackMainP(Button btnBackMainP) { this.btnBackMainP = btnBackMainP; }
-    public void setBtnEnvoyer(Button btnEnvoyer) { this.btnEnvoyer = btnEnvoyer; }
+    public void setFilmInsert(ControllerFilm cm) { btnEnvoyer.setOnMouseClicked(cm); }
 
-    public void setTitre(Label titre) { Titre = titre; }
-    public void setAnnee(Label annee) { this.annee = annee; }
-    public void setImage(Label image) { this.image = image; }
-    public void setResume(Label resume) { this.resume = resume; }
-    public void setNote(Label note) { this.note = note; }
-    public void setNom_Film(TextField nom_Film) { this.nom_Film = nom_Film; }
-    public void setAnnee_Film(TextField annee_Film) { this.annee_Film = annee_Film; }
-    public void setNote_Film(TextField note_Film) { this.note_Film = note_Film; }
-    public void setImage_Film(TextField image_Film) { this.image_Film = image_Film; }
-    public void setResume_Film(TextArea resume_Film) { this.resume_Film = resume_Film; }
 
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }

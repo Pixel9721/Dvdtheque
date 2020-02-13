@@ -57,6 +57,7 @@ public class ViewHandler extends Application {
     //setter
     public void setEventHandlerMenu(ControllerMenu cm) { vMenu.setEvents(cm); }
     public void setEventHandlerFilm(ControllerFilm cm) { vFilm.setEventsBack(cm); }
+    public void setFilmInsert(ControllerFilm cm) { vFilm.setFilmInsert(cm);}
     public void setEventHandlerListe(ControllerListe cm) {vGenre.setEventsBack(cm);}
     public void setEventHandlerRecherche(ControllerRecherche cm) {vNationalite.setEventsBack(cm);}
 

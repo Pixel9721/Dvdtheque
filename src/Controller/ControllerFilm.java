@@ -14,6 +14,7 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
     public ControllerFilm(ViewHandler viewHandler, ModelFilm model) {
         this.launcher = viewHandler;
         this.launcher.setEventHandlerFilm(this);
+        this.launcher.setFilmInsert(this);
         this.model = model;
         bdd = new BDDManager();
     }
@@ -30,7 +31,7 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
             String resumeF = launcher.getvFilm().getResume_Film().getText();
 
             String queryAddFilm = "INSERT INTO film (Nom_Film, Annee_Film, Note_Film, Image_Film, Resume_Film) VALUES ('" + nomF + "'," + anneeF + "," + noteF + ",'" + resumeF + "','" + imgF + "');";
-            System.out.println(queryAddFilm);
+
 
 
             bdd.start();
