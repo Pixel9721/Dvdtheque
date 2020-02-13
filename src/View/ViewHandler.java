@@ -23,7 +23,7 @@ public class ViewHandler extends Application {
     private ControllerListe controllerListe;
     private ControllerRecherche controllerRecherche;
     private ViewListe vGenre;
-    private ViewRecherche vNationalite;
+    private ViewRecherche vRecherche;
 
 
     public void start(Stage primaryStage)  {
@@ -39,7 +39,7 @@ public class ViewHandler extends Application {
         vMenu = new ViewMainMenu(this,root);
         vFilm = new ViewFilm(this,root);
         vGenre = new ViewListe(this, root);
-        vNationalite = new ViewRecherche(this, root);
+        vRecherche = new ViewRecherche(this, root);
 
         controllerMenu = new ControllerMenu(this, modelMenu);
         controllerFilm = new ControllerFilm(this,modelFilm);
@@ -58,13 +58,14 @@ public class ViewHandler extends Application {
     public void setEventHandlerMenu(ControllerMenu cm) { vMenu.setEvents(cm); }
     public void setEventHandlerFilm(ControllerFilm cm) { vFilm.setEventsBack(cm); }
     public void setFilmInsert(ControllerFilm cm) { vFilm.setFilmInsert(cm);}
-    public void setEventHandlerListe(ControllerListe cm) {vGenre.setEventsBack(cm);}
-    public void setEventHandlerRecherche(ControllerRecherche cm) {vNationalite.setEventsBack(cm);}
+    public void setEventHandlerListe(ControllerListe cm) { vGenre.setEventsBack(cm);}
+    public void setEventHandlerRecherche(ControllerRecherche cm) { vRecherche.setEventsBack(cm);}
+    public void setSearch(ControllerRecherche cm) { vRecherche.setSearchFilm(cm);}
 
 
     public void setFilmView() { vFilm.initView(); }
     public void setListeView() { vGenre.initView(); }
-    public void setRechercheView() { vNationalite.initView(); }
+    public void setRechercheView() { vRecherche.initView(); }
     public void setMenuView() { vMenu.initView(); }
 
 
@@ -72,6 +73,6 @@ public class ViewHandler extends Application {
     public ViewMainMenu getvMenu() { return vMenu; }
     public ViewFilm getvFilm() { return vFilm; }
     public ViewListe getvGenre() { return vGenre; }
-    public ViewRecherche getvRecherche() { return vNationalite; }
+    public ViewRecherche getvRecherche() { return vRecherche; }
 }
 

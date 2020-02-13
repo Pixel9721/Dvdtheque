@@ -97,31 +97,11 @@ public class ViewRecherche {
 
     //setter
     public void setEventsBack(ControllerRecherche cm) { btnBackMainP.setOnMouseClicked(cm); }
-    public void setBtnBackMainP(Button btnBackMainP) { this.btnBackMainP = btnBackMainP; }
-    public void setBtnEnvoyer(Button btnEnvoyer) { this.btnEnvoyer = btnEnvoyer; }
-
-    public void setTitre(Label titre) { Titre = titre; }
-    public void setAnnee(Label annee) { this.annee = annee; }
-    public void setImage(Label image) { this.image = image; }
-    public void setResume(Label resume) { this.resume = resume; }
-    public void setNote(Label note) { this.note = note; }
-    public void setNom_Film(TextField nom_Film) { this.nom_Film = nom_Film; }
-    public void setAnnee_Film(TextField annee_Film) { this.annee_Film = annee_Film; }
-    public void setNote_Film(TextField note_Film) { this.note_Film = note_Film; }
-    public void setImage_Film(TextField image_Film) { this.image_Film = image_Film; }
-    public void setResume_Film(TextField resume_Film) { this.resume_Film = resume_Film; }
+    public void setSearchFilm(ControllerRecherche cm) { btnEnvoyer.setOnMouseClicked(cm);}
 
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }
     public Button getBtnEnvoyer() { return btnEnvoyer; }
-    public Label getTitre() { return Titre; }
-    public Label getAnnee() { return annee; }
-    public Label getImage() { return image; }
-    public Label getResume() { return resume; }
-    public Label getNote() { return note; }
-    public TextField getNom_Film() { return nom_Film; }
-    public TextField getAnnee_Film() { return annee_Film; }
-    public TextField getNote_Film() { return note_Film; }
-    public TextField getImage_Film() { return image_Film; }
-    public TextField getResume_Film() { return resume_Film; }
+    public TextField getNom_FilmR() { return nom_Film; }
+    public TextField getAnnee_FilmR() { return annee_Film; }
 }
