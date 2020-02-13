@@ -5,6 +5,7 @@ import Dvdtheque.BDDManager;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -16,28 +17,29 @@ public class ViewFilm  {
     private ViewHandler VhFilm;
     private Button btnBackMainP, btnEnvoyer;
     private Label  Titre, annee, image,resume, note;
-    private TextField nom_Film, annee_Film, note_Film, image_Film, resume_Film ;
+    private TextField nom_Film, annee_Film, note_Film, image_Film ;
+    private TextArea resume_Film;
     private Text titreFilm;
 
     public ViewFilm( ViewHandler vhFilm,Group root) {
         this.root = root;
         this.VhFilm = vhFilm;
 
-        btnEnvoyer = initButton("Envoyer",250,550);
-        btnBackMainP = initButton("retour",280,600);
+        btnEnvoyer = initButton("Envoyer",1190,750);
+        btnBackMainP = initButton("retour",1190,800);
 
         titreFilm = iniTitre("Film",550, 200);
 
-        Titre = initLabel("Titre film",250, 350);
-        nom_Film = initTextField(400,350);
-        annee = initLabel("Année ", 250, 380);
-        annee_Film = initTextField(400,380);
-        image = initLabel("Image",250,470);
-        image_Film = initTextField(400,470);
-        resume = initLabel("Résumé", 250,410);
-        resume_Film = initTextField(400,410);
-        note = initLabel("Note",250,440);
-        note_Film = initTextField(400, 440);
+        Titre = initLabel("Titre film",490, 300);
+        nom_Film = initTextField(600,300);
+        annee = initLabel("Année ", 490, 350);
+        annee_Film = initTextField(600,350);
+        resume = initLabel("Résumé", 490,410);
+        resume_Film = initTextArea(600, 410);
+        image = initLabel("Image",490,630);
+        image_Film = initTextField(600,630);
+        note = initLabel("Note",490,660);
+        note_Film = initTextField(600, 660);
 
     }
 
@@ -66,7 +68,12 @@ public class ViewFilm  {
             System.out.println("Echoue");
         }
     }
-
+    private  TextArea initTextArea(int largeur, int hauteur) {
+        TextArea te = new TextArea();
+        te.setLayoutX(largeur);
+        te.setLayoutY(hauteur);
+        return te;
+    }
     private Button initButton(String texteButton, int largeur, int hauteur) {
         Button b = new Button();
         b.setText(texteButton);
@@ -121,7 +128,7 @@ public class ViewFilm  {
     public void setAnnee_Film(TextField annee_Film) { this.annee_Film = annee_Film; }
     public void setNote_Film(TextField note_Film) { this.note_Film = note_Film; }
     public void setImage_Film(TextField image_Film) { this.image_Film = image_Film; }
-    public void setResume_Film(TextField resume_Film) { this.resume_Film = resume_Film; }
+    public void setResume_Film(TextArea resume_Film) { this.resume_Film = resume_Film; }
 
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }
@@ -135,5 +142,5 @@ public class ViewFilm  {
     public TextField getAnnee_Film() { return annee_Film; }
     public TextField getNote_Film() { return note_Film; }
     public TextField getImage_Film() { return image_Film; }
-    public TextField getResume_Film() { return resume_Film; }
+    public TextArea getResume_Film() { return resume_Film; }
 }
