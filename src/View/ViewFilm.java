@@ -1,7 +1,6 @@
 package View;
 
 import Controller.ControllerFilm;
-import Dvdtheque.BDDManager;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
@@ -17,7 +16,6 @@ public class ViewFilm  {
     private TextField nom_Film, annee_Film, note_Film, image_Film ;
     private TextArea resume_Film;
     private Text titreFilm;
-    private BDDManager bdd;
 
     public ViewFilm( ViewHandler vhFilm,Group root) {
         this.root = root;

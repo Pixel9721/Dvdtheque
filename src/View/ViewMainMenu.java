@@ -52,10 +52,10 @@ public class ViewMainMenu {
                 BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
 
         //initialisation des bouttons et du titre
-        btnFilm = initButton("Ajouter film", 100, 550);
-        btnListe = initButton("Liste des films", 180,620);
-        btnRecherche = initButton("Recherche",370,690);
-        btnQuit = initButton("Quitter",1190,690);
+        btnFilm = initButton("Ajouter film", 100, 350);
+        btnListe = initButton("Liste des films", 180,420);
+        btnRecherche = initButton("Recherche",300,490);
+        btnQuit = initButton("Quitter",1190,590);
         //VBox.setMargin(btnRealisateur,new Insets(0,50,0,50));
         //HBox.setMargin(btnFilm,new Insets(0,50,0,50));
 
@@ -80,7 +80,7 @@ public class ViewMainMenu {
         Text ti = new Text();
         ti.setText(texteTitre);
         ti.setFill(Color.BLACK);
-        ti.setFont (Font.font ("Aclonica", 190));
+        ti.setFont (Font.font ("Aclonica", 150));
         return ti;
     }
 
