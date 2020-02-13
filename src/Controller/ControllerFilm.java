@@ -4,6 +4,7 @@ import Dvdtheque.BDDManager;
 import Model.ModelFilm;
 import View.ViewHandler;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerFilm implements EventHandler<MouseEvent> {
@@ -17,6 +18,22 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
         this.launcher.setFilmInsert(this);
         this.model = model;
         bdd = new BDDManager();
+    }
+
+    private void showAlertAjoutReussi(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ajout d'un nouveau Film");
+        alert.setHeaderText(null);
+        alert.setContentText("Votre film a bien été ajouté dans la Dvdtheque.");
+        alert.showAndWait();
+    }
+
+    private void showAlertVide(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Erreur ajout");
+        alert.setHeaderText(null);
+        alert.setContentText("Vous ne devez pas laisser un champ vide !");
+        alert.showAndWait();
     }
 
     @Override
@@ -34,6 +51,13 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
 
             bdd.start();
             bdd.edit(queryAddFilm);
+            if(nomF == null || anneeF == null || noteF == null || resumeF == null || imgF == null){
+                showAlertVide();
+                bdd.stop();
+                return;
+            }else{
+                showAlertAjoutReussi();
+            }
             bdd.stop();
 
         }

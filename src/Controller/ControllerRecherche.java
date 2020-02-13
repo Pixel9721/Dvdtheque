@@ -4,6 +4,7 @@ import Dvdtheque.BDDManager;
 import Model.ModelRecherche;
 import View.ViewHandler;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerRecherche implements EventHandler<MouseEvent> {
@@ -17,6 +18,16 @@ public class ControllerRecherche implements EventHandler<MouseEvent> {
         this.launcher.setEventHandlerRecherche(this);
         this.launcher.setSearch(this);
         this.model = model;
+        bdd = new BDDManager();
+
+    }
+
+    private void showAlertNullSearch(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Recherche resultat");
+        alert.setHeaderText(null);
+        alert.setContentText("Votre recherche n'a été trouvé dans la Dvdtheque.");
+        alert.showAndWait();
     }
 
     @Override
@@ -29,6 +40,14 @@ public class ControllerRecherche implements EventHandler<MouseEvent> {
 
             String querySearch = " SELECT * from film WHERE Nom_Film = '" +nomF+ "' OR Annee_Film = '"+anneeF+"' ;";
 
+            bdd.start();
+            bdd.ask(querySearch);
+            if(querySearch == null){
+                showAlertNullSearch();
+            }
+
+
+            bdd.stop();
         }
     }
 }
