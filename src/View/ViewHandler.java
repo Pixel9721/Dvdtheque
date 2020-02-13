@@ -63,7 +63,6 @@ public class ViewHandler extends Application {
 
     public void setFilmView() { vFilm.initView(); }
     public void setListeView() { vGenre.initView(); }
-
     public void setRechercheView() { vNationalite.initView(); }
     public void setMenuView() { vMenu.initView(); }
 

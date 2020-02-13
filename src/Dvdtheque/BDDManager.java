@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 
 public class BDDManager {
-    private final String BDD_URL = "jdbc:mysql://localhost:3306";
+    private final String BDD_URL = "jdbc:mysql://localhost:3306/dvdtheque";
     private final String BDD_USER = "root";
     private final String BDD_PASSWORD =  "";
     private Connection connection;

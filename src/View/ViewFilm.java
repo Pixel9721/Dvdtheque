@@ -20,13 +20,14 @@ public class ViewFilm  {
     private TextField nom_Film, annee_Film, note_Film, image_Film ;
     private TextArea resume_Film;
     private Text titreFilm;
+    private BDDManager bdd;
 
     public ViewFilm( ViewHandler vhFilm,Group root) {
         this.root = root;
         this.VhFilm = vhFilm;
 
-        btnEnvoyer = initButton("Envoyer",1190,750);
-        btnBackMainP = initButton("retour",1190,800);
+        btnEnvoyer = initButton("Envoyer",1190,550);
+        btnBackMainP = initButton("Retour",1190,600);
 
         titreFilm = iniTitre("Film",550, 200);
 
@@ -53,21 +54,6 @@ public class ViewFilm  {
         root.getChildren().add(resume_Film);
     }
 
-    public void insertFilm(){
-        try{
-            BDDManager bdd = new BDDManager();
-            bdd.start();
-            String queryNomF = "INSERT INTO 'film' ('Nom_Film') VALUES ('"+nom_Film.getText()+"')";
-            String queryAnnee = "INSERT INTO 'film' ('Annee_Film') VALUES ('"+annee_Film.getText()+"')";
-            String queryNote = "INSERT INTO 'film' ('Note_Film') VALUES ('"+note_Film.getText()+"')";
-            String queryImg = "INSERT INTO 'film' ('Image_Film') VALUES ('"+image_Film.getText()+"')";
-            String queryResume = "INSERT INTO 'film' ('Resume_Film') VALUES ('"+resume_Film.getText()+"')";
-            System.out.println("Reussite");
-            bdd.stop();
-        }catch (Exception e){
-            System.out.println("Echoue");
-        }
-    }
     private  TextArea initTextArea(int largeur, int hauteur) {
         TextArea te = new TextArea();
         te.setLayoutX(largeur);
@@ -133,11 +119,6 @@ public class ViewFilm  {
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }
     public Button getBtnEnvoyer() { return btnEnvoyer; }
-    public Label getTitre() { return Titre; }
-    public Label getAnnee() { return annee; }
-    public Label getImage() { return image; }
-    public Label getResume() { return resume; }
-    public Label getNote() { return note; }
     public TextField getNom_Film() { return nom_Film; }
     public TextField getAnnee_Film() { return annee_Film; }
     public TextField getNote_Film() { return note_Film; }
