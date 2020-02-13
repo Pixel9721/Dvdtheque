@@ -72,6 +72,6 @@ public class ViewHandler extends Application {
     public ViewMainMenu getvMenu() { return vMenu; }
     public ViewFilm getvFilm() { return vFilm; }
     public ViewListe getvGenre() { return vGenre; }
-    public ViewRecherche getvNationalite() { return vNationalite; }
+    public ViewRecherche getvRecherche() { return vNationalite; }
 }
 
