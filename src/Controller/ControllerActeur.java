@@ -18,7 +18,7 @@ public class ControllerActeur implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent event) {
         if(event.getSource().equals(launcher.getvActeur().getBtnBackMainP())){
-            launcher.setActeurView();
+            launcher.setMenuView();
         }
     }
 }

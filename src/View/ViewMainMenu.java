@@ -17,7 +17,7 @@ public class ViewMainMenu {
     private ViewHandler vhMenu;
     private VBox vBox, vBox2;
     private HBox hBox;
-    private Button btnQuit,btnFilm, btnListe, btnRecherche, btnActeur;
+    private Button btnQuit, btnAjout, btnListe, btnRecherche, btnActeur, btnRealisateur;
     private Group root;
     private Text titreM;
 
@@ -52,11 +52,12 @@ public class ViewMainMenu {
                 BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
 
         //initialisation des bouttons et du titre
-        btnActeur = initButton("Acteur", 180,350);
-        btnListe = initButton("Liste des films", 210,420);
-        btnFilm = initButton("Ajouter film", 240, 490);
-        btnRecherche = initButton("Recherche",300,550);
-        btnQuit = initButton("Quitter",1190,590);
+        btnListe = initButton("Films", 130,450);
+        btnActeur = initButton("Acteurs", 170,520);
+        btnRealisateur = initButton("Réalisateurs", 210,590);
+        btnAjout = initButton("Ajouter ", 1190, 450);
+        btnRecherche = initButton("Recherche",1130,520);
+        btnQuit = initButton("Quitter",1070,590);
 
         titreM = iniTitre("DVDTHEQUE");
 
@@ -72,7 +73,7 @@ public class ViewMainMenu {
         root.getChildren().add(vBox);
         root.getChildren().add(vBox2);
         root.getChildren().add(hBox);
-        root.getChildren().addAll( btnListe, btnActeur, btnFilm, btnRecherche, btnQuit);
+        root.getChildren().addAll( btnListe, btnActeur,btnRealisateur, btnAjout, btnRecherche, btnQuit);
     }
 
     private Text iniTitre(String texteTitre ){
@@ -88,7 +89,6 @@ public class ViewMainMenu {
         b.setText(texteButton);
         b.setLayoutX(largeur);
         b.setLayoutY(hauteur);
-        //b.setBackground(null);
         b.getStyleClass().add("btnStyle");
         b.setFont (Font.font ("Aclonica", 20));
         return b;
@@ -97,16 +97,18 @@ public class ViewMainMenu {
     //setter
     public void setEvents(ControllerMenu cm) {
         btnQuit.setOnMouseClicked(cm);
-        btnFilm.setOnMouseClicked(cm);
+        btnAjout.setOnMouseClicked(cm);
         btnListe.setOnMouseClicked(cm);
         btnRecherche.setOnMouseClicked(cm);
         btnActeur.setOnMouseClicked(cm);
+        btnRealisateur.setOnMouseClicked(cm);
     }
 
     //getter
     public Button getBtnQuit() { return btnQuit; }
-    public Button getBtnFilm() { return btnFilm; }
+    public Button getBtnAjout() { return btnAjout; }
     public Button getBtnListe() { return btnListe; }
     public Button getBtnRecherche() { return btnRecherche; }
     public Object getBtnActeur() { return  btnActeur; }
+    public Button getBtnRealisateur() { return btnRealisateur; }
 }

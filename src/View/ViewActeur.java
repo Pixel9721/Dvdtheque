@@ -28,8 +28,8 @@ public class ViewActeur {
         this.root = root;
         this.vhActeur = vhActeur;
 
-        btnBackMainP = initButton("Retour", 80, 600);
-        titreActeur = iniTitre("Acteur", 550,200);
+        btnBackMainP = initButton("Retour", 80, 800);
+        titreActeur = iniTitre("Acteur", 350,200);
 
     }
     void initView(){
@@ -47,15 +47,15 @@ public class ViewActeur {
         BDDManager bdd = new BDDManager();
         bdd.start();
 
-        ArrayList<ArrayList<String>> ListeFilm = bdd.ask("SELECT * FROM Dvdtheque.acteur ORDER BY Id_Acteur DESC");
+        ArrayList<ArrayList<String>> ListeActeur = bdd.ask("SELECT * FROM Dvdtheque.acteur ORDER BY Id_Acteur DESC");
 
-        for (int i = 0; i < ListeFilm.size(); i ++) {
-            Label nomActeur = new Label(ListeFilm.get(i).get(1));
-            Label prenomActeur = new Label(ListeFilm.get(i).get(2));
+        for (int i = 0; i < ListeActeur.size(); i ++) {
+            Label nomActeur = new Label(ListeActeur.get(i).get(1));
+            Label prenomActeur = new Label(ListeActeur.get(i).get(2));
 
-            ImageView imageActeur = new ImageView("Assets/images/vin.jpg");
+            ImageView imageActeur = new ImageView("Assets/images/Acteurs/vin.jpg");
 
-            System.out.println(ListeFilm);
+            System.out.println(ListeActeur);
             bdd.stop();
             nom = initLabel("Nom :",250, 470);
             prenom = initLabel("Prenom:", 250, 380);
@@ -64,11 +64,10 @@ public class ViewActeur {
             vBox.setLayoutX(350);
             vBox.setLayoutY(450);
             vBox.setAlignment(Pos.CENTER);
-            VBox.setMargin(image, new Insets(30,0,0,0));
+            VBox.setMargin(nom, new Insets(30,0,0,0));
             VBox.setMargin(imageActeur, new Insets(0,0,0,30));
-
-            imageActeur.setFitWidth(350);
-            imageActeur.setFitHeight(450);
+            imageActeur.setFitWidth(250);
+            imageActeur.setFitHeight(200);
             imageActeur.setLayoutX(100);
             imageActeur.setLayoutY(100);
             image.setLayoutY(100);
@@ -78,7 +77,7 @@ public class ViewActeur {
 
         }
         scroll.setContent(vBox);
-        scroll.setPrefHeight(650);
+        scroll.setPrefHeight(550);
         scroll.setPrefWidth(420);
         scroll.setLayoutX(550);
         scroll.setLayoutY(250);
@@ -123,7 +122,7 @@ public class ViewActeur {
         return l;
     }
 
-    public void setEvents(ControllerListe cm) {
+    public void setEvents(ControllerActeur cm) {
         btnBackMainP.setOnMouseClicked(cm);
     }
 

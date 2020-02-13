@@ -30,7 +30,8 @@ CREATE TABLE Film(
 CREATE TABLE Acteur(
         Id_Acteur       Int Auto_increment NOT NULL PRIMARY KEY,
         Nom_Acteur      Varchar (50) NOT NULL,
-        Prenom_Acteur   Varchar (50) NOT NULL
+        Prenom_Acteur   Varchar (50) NOT NULL,
+        Image_Acteur    Varchar (250)  NOT NULL
 );
 
 

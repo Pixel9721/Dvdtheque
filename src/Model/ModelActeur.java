@@ -7,12 +7,11 @@ public class ModelActeur {
     public static final int PrenomA = 2;
     public static final int Image = 3;
 
-
-
     private String idActeur;
     private String nomActeur;
     private String prenomActeur;
     private String imageActeur;
+
 
 
     public ModelActeur(String idActeur, String nomActeur, String prenomActeur, String imageActeur) {

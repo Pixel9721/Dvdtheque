@@ -30,7 +30,7 @@ public class ViewListe {
         this.root = root;
         this.vhListe = vhListe;
 
-        btnBackMainP = initButton("retour",80,600);
+        btnBackMainP = initButton("retour",80,800);
 
         titreFilm = iniTitre("Film",550, 200);
 
@@ -46,9 +46,7 @@ public class ViewListe {
     }
     public void viewListe(){
             vBox = new VBox();
-
             ScrollPane scroll = new ScrollPane();
-
             BDDManager bdd = new BDDManager();
             bdd.start();
 
@@ -70,7 +68,7 @@ public class ViewListe {
             resume = initLabel("Résumé :", 250,410);
             note = initLabel("Note :",250,440);
 
-            vBox.setLayoutX(350);
+            vBox.setLayoutX(250);
             vBox.setLayoutY(450);
             vBox.setAlignment(Pos.CENTER);
             VBox.setMargin(image, new Insets(30,0,0,0));
@@ -91,7 +89,7 @@ public class ViewListe {
 
         }
             scroll.setContent(vBox);
-            scroll.setPrefHeight(650);
+            scroll.setPrefHeight(550);
             scroll.setPrefWidth(420);
             scroll.setLayoutX(550);
             scroll.setLayoutY(250);

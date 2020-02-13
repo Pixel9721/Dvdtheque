@@ -18,7 +18,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-        if (event.getSource().equals(launcher.getvMenu().getBtnFilm())) {
+        if (event.getSource().equals(launcher.getvMenu().getBtnAjout())) {
             launcher.setFilmView();
         }else if(event.getSource().equals(launcher.getvMenu().getBtnActeur())){
             launcher.setActeurView();
@@ -26,6 +26,9 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
             launcher.setListeView();
         }else if (event.getSource().equals(launcher.getvMenu().getBtnRecherche())){
             launcher.setRechercheView();
+        }else if (event.getSource().equals(launcher.getvMenu().getBtnRealisateur())){
+            launcher.setvRealisateurView();
+
         }else if (event.getSource().equals(launcher.getvMenu().getBtnQuit())) {
             System.exit(0);
         }
