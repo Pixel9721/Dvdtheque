@@ -32,8 +32,6 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
 
             String queryAddFilm = "INSERT INTO film (Nom_Film, Annee_Film, Note_Film, Image_Film, Resume_Film) VALUES ('" + nomF + "'," + anneeF + "," + noteF + ",'" + resumeF + "','" + imgF + "');";
 
-
-
             bdd.start();
             bdd.edit(queryAddFilm);
             bdd.stop();
