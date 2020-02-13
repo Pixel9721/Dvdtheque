@@ -4,6 +4,7 @@ import Controller.ControllerFilm;
 import Controller.ControllerListe;
 import Controller.ControllerMenu;
 import Dvdtheque.BDDManager;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.*;
@@ -29,15 +30,11 @@ public class ViewListe {
         this.root = root;
         this.vhListe = vhListe;
 
-        btnBackMainP = initButton("retour",80,800);
+        btnBackMainP = initButton("retour",80,600);
 
         titreFilm = iniTitre("Film",550, 200);
 
-        Titre = initLabel("Titre film",250, 470);
-        annee = initLabel("Année ", 250, 380);
-        image = initLabel("Image",250,350);
-        resume = initLabel("Résumé", 250,410);
-        note = initLabel("Note",250,440);
+
 
     }
 
@@ -55,7 +52,7 @@ public class ViewListe {
             BDDManager bdd = new BDDManager();
             bdd.start();
 
-        ArrayList<ArrayList<String>> ListeFilm = bdd.ask("SELECT * FROM Dvdtheque.film");
+        ArrayList<ArrayList<String>> ListeFilm = bdd.ask("SELECT * FROM Dvdtheque.film ORDER BY Id_Film DESC");
 
         for (int i = 0; i < ListeFilm.size(); i ++) {
             Label nomFilm = new Label(ListeFilm.get(i).get(1));
@@ -66,27 +63,37 @@ public class ViewListe {
 
             System.out.println(ListeFilm);
             bdd.stop();
+            Titre = initLabel("Titre film :",250, 470);
+
+            annee = initLabel("Année :", 250, 380);
+            image = initLabel("Affiche :",250,350);
+            resume = initLabel("Résumé :", 250,410);
+            note = initLabel("Note :",250,440);
 
             vBox.setLayoutX(350);
-            vBox.setLayoutY(250);
+            vBox.setLayoutY(450);
+            vBox.setAlignment(Pos.CENTER);
+            VBox.setMargin(image, new Insets(30,0,0,0));
+            VBox.setMargin(imageFilm, new Insets(0,0,0,30));
 
-            vBox.setMinWidth(Screen.getPrimary().getBounds().getWidth());
-            vBox.setMinHeight(Screen.getPrimary().getBounds().getHeight());
-
-            imageFilm.setFitWidth(250);
-            imageFilm.setFitHeight(350);
-            //resumeFilm.setPrefWidth(200);
-            //resumeFilm.setPrefHeight(300);
+            imageFilm.setFitWidth(350);
+            imageFilm.setFitHeight(450);
+            imageFilm.setLayoutX(100);
+            imageFilm.setLayoutY(100);
+            image.setLayoutY(100);
 
 
+            resumeFilm.setMaxWidth(300);
+            resumeFilm.setWrapText(true);
 
-            vBox.getChildren().addAll(imageFilm, nomFilm, anneeFilm, resumeFilm,noteFilm);
+
+            vBox.getChildren().addAll(image,imageFilm, Titre,nomFilm,annee, anneeFilm, note,  noteFilm, resume , resumeFilm);
 
         }
             scroll.setContent(vBox);
-            scroll.setMaxHeight(1920);
-            scroll.setMaxWidth(1920);
-            scroll.setLayoutX(500);
+            scroll.setPrefHeight(650);
+            scroll.setPrefWidth(420);
+            scroll.setLayoutX(550);
             scroll.setLayoutY(250);
 
             root.getChildren().add(scroll);
