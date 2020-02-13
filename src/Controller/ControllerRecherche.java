@@ -63,7 +63,7 @@ public class ControllerRecherche implements EventHandler<MouseEvent> {
                 Label nomFilm = new Label(ListeRecherche.get(i).get(1));
                 Label anneeFilm = new Label(ListeRecherche.get(i).get(2));
                 Label noteFilm = new Label(ListeRecherche.get(i).get(3));
-                TextArea resumeFilm = new TextArea(ListeRecherche.get(i).get(4));
+                TextArea resumeFilm = new TextArea(ListeRecherche.get(i).get(5));
                 ImageView imageFilm = new ImageView("Assets/images/30couleur.jpg");
 
                 System.out.println(ListeRecherche);
