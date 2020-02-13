@@ -58,7 +58,7 @@ public class ViewListe {
             Label nomFilm = new Label(ListeFilm.get(i).get(1));
             Label anneeFilm = new Label(ListeFilm.get(i).get(2));
             Label noteFilm = new Label(ListeFilm.get(i).get(3));
-            TextArea resumeFilm = new TextArea(ListeFilm.get(i).get(4));
+            TextArea resumeFilm = new TextArea(ListeFilm.get(i).get(5));
             ImageView imageFilm = new ImageView("Assets/images/30couleur.jpg");
 
             System.out.println(ListeFilm);
