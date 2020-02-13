@@ -1,10 +1,15 @@
 package View;
 
+import Controller.ControllerFilm;
 import Controller.ControllerListe;
+import Controller.ControllerMenu;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -13,8 +18,7 @@ public class ViewListe {
     private Group root;
     private ViewHandler vhListe;
     private Button btnBackMainP, btnEnvoyer;
-    private Label libelle;
-    private TextField Libelle_genre;
+    private Label  Titre, annee, image,resume, note;
     private Text titreFilm;
 
 
@@ -25,10 +29,13 @@ public class ViewListe {
         btnEnvoyer = initButton("Envoyer",250,550);
         btnBackMainP = initButton("retour",280,600);
 
-        titreFilm = iniTitre("Liste des Films",380, 200);
+        titreFilm = iniTitre("Film",550, 200);
 
-        libelle = initLabel("Libelle",250,350);
-        Libelle_genre = initTextField(400,350);
+        Titre = initLabel("Titre film",250, 350);
+        annee = initLabel("Année ", 250, 380);
+        image = initLabel("Image",250,470);
+        resume = initLabel("Résumé", 250,410);
+        note = initLabel("Note",250,440);
 
     }
 
@@ -36,8 +43,9 @@ public class ViewListe {
         root.getChildren().clear();
         root.getChildren().addAll(btnBackMainP);
         root.getChildren().add(btnEnvoyer);
-        root.getChildren().addAll(titreFilm, libelle,Libelle_genre);
-
+        root.getChildren().addAll(titreFilm);
+        root.getChildren().addAll(Titre,annee,image, note);
+        root.getChildren().add(resume);
     }
 
     private Button initButton(String texteButton, int largeur, int hauteur) {
@@ -45,19 +53,19 @@ public class ViewListe {
         b.setText(texteButton);
         b.setLayoutX(largeur);
         b.setLayoutY(hauteur);
-        b.setTextFill(Color.BLACK);
-        b.setBackground(null);
-        b.setStyle(" -fx-border-color: #000000; -fx-border-radius: 15;");
+        //b.setBackground(null);
+        b.getStyleClass().add("btnStyle");
         b.setFont (Font.font ("Aclonica", 20));
         return b;
     }
+
     private Text iniTitre(String texteTitre, int largeur, int hauteur){
         Text ti = new Text();
         ti.setText(texteTitre);
         ti.setLayoutX(largeur);
         ti.setLayoutY(hauteur);
         ti.setFill(Color.BLACK);
-        ti.setFont (Font.font ("Aclonica", 100));
+        ti.setFont (Font.font ("Aclonica", 190));
         return ti;
     }
     private TextField initTextField( int largeur, int hauteur){
@@ -85,13 +93,18 @@ public class ViewListe {
     public void setBtnBackMainP(Button btnBackMainP) { this.btnBackMainP = btnBackMainP; }
     public void setBtnEnvoyer(Button btnEnvoyer) { this.btnEnvoyer = btnEnvoyer; }
 
-    public void setLibelle(Label libelle) { this.libelle = libelle; }
-    public void setLibelle_genre(TextField libelle_genre) { Libelle_genre = libelle_genre; }
+    public void setTitre(Label titre) { Titre = titre; }
+    public void setAnnee(Label annee) { this.annee = annee; }
+    public void setImage(Label image) { this.image = image; }
+    public void setResume(Label resume) { this.resume = resume; }
+    public void setNote(Label note) { this.note = note; }
 
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }
     public Button getBtnEnvoyer() { return btnEnvoyer; }
-
-    public Label getLibelle() { return libelle; }
-    public TextField getLibelle_genre() { return Libelle_genre; }
+    public Label getTitre() { return Titre; }
+    public Label getAnnee() { return annee; }
+    public Label getImage() { return image; }
+    public Label getResume() { return resume; }
+    public Label getNote() { return note; }
 }

@@ -52,7 +52,7 @@ public class ViewMainMenu {
                 BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
 
         //initialisation des bouttons et du titre
-        btnFilm = initButton("Film", 100, 550);
+        btnFilm = initButton("Ajouter film", 100, 550);
         btnListe = initButton("Liste des films", 180,620);
         btnRecherche = initButton("Recherche",370,690);
         btnQuit = initButton("Quitter",1190,690);

@@ -19,6 +19,8 @@ public class ControllerFilm implements EventHandler<MouseEvent> {
     public void handle(MouseEvent event) {
         if(event.getSource().equals(launcher.getvFilm().getBtnBackMainP())){
             launcher.setMenuView();
+        }else if(event.getSource().equals(launcher.getvFilm().getBtnEnvoyer())){
+
         }
     }
 }

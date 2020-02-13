@@ -3,15 +3,14 @@ package Dvdtheque;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
+/**
+ Created by cladlink on 12/03/16.
+ */
 
 public class BDDManager {
-
-    /**
-     Created by cladlink on 12/03/16.
-     */
-    private final String BDD_URL = "jdbc:mysql://localhost:8889";
+    private final String BDD_URL = "jdbc:mysql://localhost:3306";
     private final String BDD_USER = "root";
-    private final String BDD_PASSWORD =  "root";
+    private final String BDD_PASSWORD =  "";
     private Connection connection;
     private Statement statement;
 
@@ -23,11 +22,11 @@ public class BDDManager {
     {
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            //Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection (BDD_URL ,BDD_USER,BDD_PASSWORD);
             statement = connection.createStatement();
         }
-        catch (SQLException | ClassNotFoundException e)
+        catch (SQLException e)
         {
             e.printStackTrace();
         }
@@ -168,13 +167,8 @@ public class BDDManager {
     {
         BDDManager bdd = new BDDManager();
         bdd.start();
-        //bdd.lire("src/BDD_Film.sql");
-        //bdd.lire("src/BDD_Film.sql");
-        //bdd.edit("INSERT INTO Acteur VALUES ('vin', 'diesel')");
+        bdd.lire("src/Dvdtheque/BDD_Film.sql");
         bdd.stop();
 
     }
 }
-
-
-

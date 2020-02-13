@@ -1,36 +1,47 @@
 package View;
 
+import Controller.ControllerFilm;
+import Controller.ControllerMenu;
 import Controller.ControllerRecherche;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class ViewRecherche {
     private Group root;
-    private ViewHandler vhNationalite;
+    private ViewHandler VhRecherche;
     private Button btnBackMainP, btnEnvoyer;
-    private Label  nationnalite ;
-    private TextField Libelle_nationalite;
-
+    private Label  Titre, annee, image,resume, note;
+    private TextField nom_Film, annee_Film, note_Film, image_Film, resume_Film ;
     private Text titreFilm;
 
 
-    public ViewRecherche(ViewHandler vhNationalite, Group root) {
+    public ViewRecherche(ViewHandler vhRecherche, Group root) {
         this.root = root;
-        this.vhNationalite = vhNationalite;
+        this.VhRecherche = vhRecherche;
 
         btnEnvoyer = initButton("Envoyer",250,550);
         btnBackMainP = initButton("retour",280,600);
 
-        titreFilm = iniTitre("Recherche",150, 200);
+        titreFilm = iniTitre("Film",550, 200);
 
-        nationnalite = initLabel("Nationalité",250, 350);
-        Libelle_nationalite = initTextField(400,350);
-
+        Titre = initLabel("Titre film",250, 350);
+        nom_Film = initTextField(400,350);
+        annee = initLabel("Année ", 250, 380);
+        annee_Film = initTextField(400,380);
+        image = initLabel("Image",250,470);
+        image_Film = initTextField(400,470);
+        resume = initLabel("Résumé", 250,410);
+        resume_Film = initTextField(400,410);
+        note = initLabel("Note",250,440);
+        note_Film = initTextField(400, 440);
 
     }
 
@@ -39,21 +50,22 @@ public class ViewRecherche {
         root.getChildren().addAll(btnBackMainP);
         root.getChildren().add(btnEnvoyer);
         root.getChildren().addAll(titreFilm);
-        root.getChildren().add(Libelle_nationalite);
-        root.getChildren().add(nationnalite);
-
+        root.getChildren().addAll(Titre, nom_Film, annee, annee_Film,image, image_Film, note, note_Film);
+        root.getChildren().add(resume);
+        root.getChildren().add(resume_Film);
     }
+
     private Button initButton(String texteButton, int largeur, int hauteur) {
         Button b = new Button();
         b.setText(texteButton);
         b.setLayoutX(largeur);
         b.setLayoutY(hauteur);
-        b.setTextFill(Color.BLACK);
-        b.setBackground(null);
-        b.setStyle(" -fx-border-color: #000000; -fx-border-radius: 15;");
+        //b.setBackground(null);
+        b.getStyleClass().add("btnStyle");
         b.setFont (Font.font ("Aclonica", 20));
         return b;
     }
+
     private Text iniTitre(String texteTitre, int largeur, int hauteur){
         Text ti = new Text();
         ti.setText(texteTitre);
@@ -87,13 +99,29 @@ public class ViewRecherche {
     public void setEventsBack(ControllerRecherche cm) { btnBackMainP.setOnMouseClicked(cm); }
     public void setBtnBackMainP(Button btnBackMainP) { this.btnBackMainP = btnBackMainP; }
     public void setBtnEnvoyer(Button btnEnvoyer) { this.btnEnvoyer = btnEnvoyer; }
-    public void setNationnalite(Label nationnalite) { this.nationnalite = nationnalite; }
-    public void setLibelle_nationalite(TextField libelle_nationalite) { Libelle_nationalite = libelle_nationalite; }
+
+    public void setTitre(Label titre) { Titre = titre; }
+    public void setAnnee(Label annee) { this.annee = annee; }
+    public void setImage(Label image) { this.image = image; }
+    public void setResume(Label resume) { this.resume = resume; }
+    public void setNote(Label note) { this.note = note; }
+    public void setNom_Film(TextField nom_Film) { this.nom_Film = nom_Film; }
+    public void setAnnee_Film(TextField annee_Film) { this.annee_Film = annee_Film; }
+    public void setNote_Film(TextField note_Film) { this.note_Film = note_Film; }
+    public void setImage_Film(TextField image_Film) { this.image_Film = image_Film; }
+    public void setResume_Film(TextField resume_Film) { this.resume_Film = resume_Film; }
 
     //getter
     public Button getBtnBackMainP(){ return btnBackMainP; }
     public Button getBtnEnvoyer() { return btnEnvoyer; }
-    public Label getNationnalite() { return nationnalite; }
-    public TextField  getNationalite() { return Libelle_nationalite; }
+    public Label getTitre() { return Titre; }
+    public Label getAnnee() { return annee; }
+    public Label getImage() { return image; }
+    public Label getResume() { return resume; }
+    public Label getNote() { return note; }
+    public TextField getNom_Film() { return nom_Film; }
+    public TextField getAnnee_Film() { return annee_Film; }
+    public TextField getNote_Film() { return note_Film; }
+    public TextField getImage_Film() { return image_Film; }
+    public TextField getResume_Film() { return resume_Film; }
 }
-
